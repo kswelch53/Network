@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app_two/css/style.css' %}" media="screen" title="no title">
+    <title>Professional Profile</title>
+  </head>
+
+  <body>
+
+    <div class = "header">
+      <h1 class="one_line">Hello, {{ user.name }}!</h1><a href={% url 'app2:all_users' %}>All Users</h1><a href={% url 'app1:logout' %}>Log out</a>
+    </div>
+
+    <h3>Here is your profile description:</h3>
+    <fieldset>
+      <h4>{{ user.desc }}
+    </fieldset>
+
+    <h3>Your Professional Network:</h3>
+    <div class = "network_list">
+      {% for friend in allfriends %}
+        <p><a href="{% url 'app2:index' %}">{{ friend.invitee.name }}</a></p>
+      {% endfor %}
+    </div>
+
+
+    <div class = "table1">
+    <h3>Invitations:</h3>
+    <h5>The following people asked you to be in their network:</h5>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</a></th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for inviter in inviters %}
+            <tr>
+              <p><td><a href="{% url 'app2:users' user_id=inviter.id %}">{{ inviter.inviter.name }}</a></td></p>
+              <p><td><a href="{% url 'app2:accept' id=inviter.id %}">Accept Invite<a><a href="{% url 'app2:ignore' id=inviter.id %}">Ignore<a></td></p>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div><!-- table1 end div -->
+    <br>
+
+
+  </body>
+</html>

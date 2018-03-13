@@ -1,0 +1,42 @@
+body{
+  background: lightblue;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h1{
+  font-style: italic;
+  font-weight: lighter;
+}
+
+.error_messages p{
+  color: red;
+}
+
+input{
+  background-color: silver;
+  border-radius: 10px;
+}
+
+.login{
+  display: block;
+  margin-left: 10px;
+}
+
+.registration{
+  display: block;
+  margin-left: 10px;
+}
+
+textarea{
+  overflow: hidden;
+  background-color: silver;
+  border-radius: 10px;
+}
+
+.wrapper{
+  display: block;
+  width: 30%;
+  background-color: beige;
+  border: 1px solid black;
+}
